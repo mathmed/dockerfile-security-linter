@@ -19,5 +19,5 @@ class SM02:
         return False
 
     def includes_pass(self, string):
-        return "pass" in string or "senha" in string
+        return "pass" in string.lower() or "senha" in string.lower()
 
