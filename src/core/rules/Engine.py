@@ -1,5 +1,5 @@
 
-from .SM01 import SM01
+from core.rules.smells.SM01 import SM01
 
 class Engine:
 
