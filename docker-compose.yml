@@ -1,0 +1,7 @@
+version: "3.5"
+services:
+  dsl:
+    build: .
+    volumes:
+      - ./src:/home/dsl
+      - ./dockerfiles:/home/dsl/dockerfiles
