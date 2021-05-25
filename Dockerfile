@@ -3,7 +3,7 @@ RUN mkdir /home/dsl
 RUN apt update && apt install -y python3 pip
 WORKDIR /code
 COPY requirements.txt requirements.txt
-RUN pip install -r requirements.txt
+RUN pip install -r requirements.txt coverage
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod 755 /usr/local/bin/entrypoint.sh \
     && ln -s /usr/local/bin/entrypoint.sh /

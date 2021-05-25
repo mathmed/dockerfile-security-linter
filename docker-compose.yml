@@ -3,5 +3,4 @@ services:
   dsl:
     build: .
     volumes:
-      - ./src:/home/dsl
-      - ./dockerfiles:/home/dsl/dockerfiles
+      - .:/home/dsl
