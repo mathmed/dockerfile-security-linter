@@ -9,7 +9,7 @@ class SM01:
         if(self.token.directive == "user"):
             if(self.token.value[0] == "root"):
                 return {
-                    "command": self.token.original, 
+                    "command": self.token.directive, 
                     "start_line": self.token.start_line, 
                     "end_line": self.token.end_line, 
                     "security_smell": smells["SM01"]
