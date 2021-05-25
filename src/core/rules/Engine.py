@@ -1,5 +1,5 @@
 
-from core.rules.smells.SM01 import SM01
+from .smells.SM01 import SM01
 
 class Engine:
 
@@ -9,7 +9,10 @@ class Engine:
 
     def run(self):
         for token in self.tokens:
-            sm01 = SM01(token).validade()
+            sm01 = self.validade(token)
             if(sm01):
                 self.smells.append(sm01)
         return self.smells
+
+    def validade(self, token):
+        return SM01(token).validade()

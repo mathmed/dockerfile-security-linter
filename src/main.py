@@ -4,7 +4,7 @@ import pprint
 
 def main():
 
-    lexical = LexicalAnalysis('dockerfiles/Dockerfile')
+    lexical = LexicalAnalysis('/home/dsl/dockerfiles/Dockerfile')
     lexical.parse()
     tokens = lexical.get_tokens()
     print(Engine(tokens).run())
