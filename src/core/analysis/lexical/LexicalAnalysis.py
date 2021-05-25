@@ -3,19 +3,19 @@ from .Token import Token
 
 class LexicalAnalysis:
 
-    def __init__(self, dockerfilePath):
-        self.dockerfilePath = dockerfilePath
+    def __init__(self, dockerfile_path):
+        self.dockerfile_path = dockerfile_path
         self.tokens = []
 
-    def getTokens(self):
+    def get_tokens(self):
         return self.tokens
 
     def parse(self):
-        self.tokens = dockerfile.parse_file(self.dockerfilePath)
-        self.convertTokens()
+        self.tokens = dockerfile.parse_file(self.dockerfile_path)
+        self.convert_tokens()
 
-    def convertTokens(self):
-        convertedTokens = []
+    def convert_tokens(self):
+        converted_tokens = []
         for token in self.tokens:
-            convertedTokens.append(Token(token))
-        self.tokens = convertedTokens
+            converted_tokens.append(Token(token))
+        self.tokens = converted_tokens

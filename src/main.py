@@ -6,7 +6,7 @@ def main():
 
     lexical = LexicalAnalysis('dockerfiles/Dockerfile')
     lexical.parse()
-    tokens = lexical.getTokens()
+    tokens = lexical.get_tokens()
     print(Engine(tokens).run())
 
 if __name__ == "__main__":
