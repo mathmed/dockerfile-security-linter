@@ -8,9 +8,10 @@ from src.core.rules.smells.smells import smells
 class TestEngine(unittest.TestCase):
     
     def test_engine_should_return_sm01_smell(self):
-        sut = Engine([Token(["user", "any_sub", "any_json", "any_original", "any_start", "any_end", "any_flags", ["root"]])])
+        sut = Engine([Token("user", "any_original", "any_start", "any_end", ["root"])])
+
         expected = {
-                    "command": "user", 
+                    "command": "any_original", 
                     "start_line": "any_start", 
                     "end_line": "any_end", 
                     "security_smell": smells["SM01"]
@@ -18,9 +19,9 @@ class TestEngine(unittest.TestCase):
         self.assertEqual(sut.run(), [expected])
 
     def test_engine_should_return_sm02_smell(self):
-        sut = Engine([Token(["env", "any_sub", "any_json", "any_original", "any_start", "any_end", "any_flags", ["pass", "''"]])])
+        sut = Engine([Token("env", "any_original", "any_start", "any_end", ["pass", "''"])])
         expected = {
-                    "command": "env", 
+                    "command": "any_original", 
                     "start_line": "any_start", 
                     "end_line": "any_end", 
                     "security_smell": smells["SM02"]
@@ -28,9 +29,9 @@ class TestEngine(unittest.TestCase):
         self.assertEqual(sut.run(), [expected])
 
     def test_engine_should_return_sm03_smell(self):
-        sut = Engine([Token(["env", "any_sub", "any_json", "any_original", "any_start", "any_end", "any_flags", ["pass", "pass"]])])
+        sut = Engine([Token("env", "any_original", "any_start", "any_end", ["pass", "pass"])])
         expected = {
-                    "command": "env", 
+                    "command": "any_original", 
                     "start_line": "any_start", 
                     "end_line": "any_end", 
                     "security_smell": smells["SM03"]

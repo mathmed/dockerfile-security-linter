@@ -6,13 +6,13 @@ from src.core.analysis.lexical.Token import Token
 class TestSM02(unittest.TestCase):
 
     def test_sm02_should_return_false(self):
-        sut = SM02(Token(["env", "any_sub", "any_json", "any_original", "any_start", "any_end", "any_flags", ["pass", "pass"]]))
+        sut = SM02(Token("env", "any_original", "any_start", "any_end", ["pass", "pass"]))
         self.assertEqual(sut.validade(), False)
 
     def test_sm02_should_return_dict(self):
-        sut = SM02(Token(["env", "any_sub", "any_json", "any_original", "any_start", "any_end", "any_flags", ["pass", "''"]]))
+        sut = SM02(Token("env", "any_original", "any_start", "any_end", ["pass", "''"]))
         expected = {
-                    "command": "env", 
+                    "command": "any_original", 
                     "start_line": "any_start", 
                     "end_line": "any_end", 
                     "security_smell": smells["SM02"]

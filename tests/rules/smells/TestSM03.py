@@ -2,17 +2,28 @@ import unittest
 from src.core.rules.smells.SM03 import SM03
 from src.core.rules.smells.smells import smells
 from src.core.analysis.lexical.Token import Token
+from src.core.analysis.lexical.modules.shell.Token import Token as TokenShell
 
 class TestSM03(unittest.TestCase):
 
-    def test_sm02_should_return_false(self):
-        sut = SM03(Token(["env", "any_sub", "any_json", "any_original", "any_start", "any_end", "any_flags", ["ANY_ENV", "pass"]]))
+    def test_sm03_should_return_false(self):
+        sut = SM03(Token("env", "any_original", "any_start", "any_end", ["ANY_ENV", "any_env"]))
         self.assertEqual(sut.validade(), False)
 
-    def test_sm02_should_return_dict(self):
-        sut = SM03(Token(["env", "any_sub", "any_json", "any_original", "any_start", "any_end", "any_flags", ["pass", "'ANY_PASS'"]]))
+    def test_sm03_should_return_dict(self):
+        sut = SM03(Token("env", "any_original", "any_start", "any_end", ["ANY_PASS", "any_env"]))
         expected = {
-                    "command": "env", 
+                    "command": "any_original", 
+                    "start_line": "any_start", 
+                    "end_line": "any_end", 
+                    "security_smell": smells["SM03"]
+                }
+        self.assertEqual(sut.validade(), expected)
+
+    def test_sm03_should_return_dict_on_shell_command(self):
+        sut = SM03(Token("run", "any_original", "any_start", "any_end", [TokenShell("export", ["password='any'"])]))
+        expected = {
+                    "command": "any_original", 
                     "start_line": "any_start", 
                     "end_line": "any_end", 
                     "security_smell": smells["SM03"]
