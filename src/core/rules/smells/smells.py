@@ -18,5 +18,10 @@ smells = {
     "smell": "Vinculação com endereço IP impróprio",
     "description": "Controle de acesso inadequado",
     "cwe": 284
+  },
+    "SM06": {
+    "smell": "Uso de HTTP sem TLS",
+    "description": "Transmissão de informações em texto claro",
+    "cwe": 319
   }
 }
