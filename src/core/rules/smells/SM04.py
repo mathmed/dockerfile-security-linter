@@ -20,13 +20,14 @@ class SM04:
 
     def verify_env_directive(self, token):
         if(token.directive.lower() == "cmd" or token.directive.lower() == "entrypoint"):
-            if("0.0.0.0" in token.value):
-                return {
-                        "command": token.original, 
-                        "start_line": token.start_line, 
-                        "end_line": token.end_line, 
-                        "security_smell": smells["SM04"]
-                    }
+            for item in token.value:
+                if("0.0.0.0" in item):
+                    return {
+                            "command": token.original, 
+                            "start_line": token.start_line, 
+                            "end_line": token.end_line, 
+                            "security_smell": smells["SM04"]
+                        }
         return False
 
     def verify_run_directive(self, token):
