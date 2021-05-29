@@ -1,4 +1,9 @@
 class Token:
+
+    def __init__(self, directive = "", value = []):
+        self.directive = directive
+        self.value = value
+
     def set_directive(self, directive):
         self.directive = directive
 
