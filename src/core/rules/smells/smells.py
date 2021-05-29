@@ -13,5 +13,10 @@ smells = {
     "smell": "Credenciais definidas em texto claro",
     "description": "Uso de senha em texto claro",
     "cwe": 259
+  },
+    "SM04": {
+    "smell": "Vinculação com endereço IP impróprio",
+    "description": "Controle de acesso inadequado",
+    "cwe": 284
   }
 }
