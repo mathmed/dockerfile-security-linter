@@ -26,6 +26,7 @@ class SM02:
                         "end_line": token.end_line, 
                         "security_smell": smells["SM02"]
                     }
+        return False
             
     def includes_pass(self, string):
         return "pass" in string.lower() or "senha" in string.lower()

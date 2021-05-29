@@ -15,6 +15,7 @@ class SM03:
             return env_directive
         if(run_directive):
             return run_directive
+        return False
 
     def verify_env_directive(self, token):
         if(token.directive == "env"):
@@ -26,6 +27,7 @@ class SM03:
                         "end_line": token.end_line, 
                         "security_smell": smells["SM03"]
                     }
+        return False
 
     def verify_run_directive(self, token):
         if(token.directive == "run"):
@@ -39,6 +41,7 @@ class SM03:
                                 "end_line": token.end_line, 
                                 "security_smell": smells["SM03"]
                             }
+        return False
 
     def includes_pass(self, string):
         return "pass" in string.lower() or "senha" in string.lower()
