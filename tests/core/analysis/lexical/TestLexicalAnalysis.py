@@ -1,7 +1,7 @@
 import unittest
 from src.core.analysis.lexical.LexicalAnalysis import LexicalAnalysis
 from src.core.analysis.lexical.Token import Token
-from src.core.analysis.lexical.modules.shell.Token import Token as TokenShell
+from src.core.analysis.lexical.shell.Token import Token as TokenShell
 
 class TestLexicalAnalysis(unittest.TestCase):
     def test_convert_tokens(self):

@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import MagicMock
 from src.core.analysis.lexical.Token import Token
-from src.core.analysis.lexical.modules.shell.Token import Token as TokenShell
+from src.core.analysis.lexical.shell.Token import Token as TokenShell
 from src.core.rules.Engine import Engine
 from src.core.rules.smells.smells import smells
 

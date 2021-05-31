@@ -1,6 +1,6 @@
 import unittest
-from src.core.analysis.lexical.modules.shell.ShellLexicalAnalysis import ShellLexicalAnalysis
-from src.core.analysis.lexical.modules.shell.Token import Token
+from src.core.analysis.lexical.shell.ShellLexicalAnalysis import ShellLexicalAnalysis
+from src.core.analysis.lexical.shell.Token import Token
 
 class TestShellLexicalAnalysis(unittest.TestCase):
     def test_parse_tokens_one_command(self):

@@ -2,7 +2,7 @@ import unittest
 from src.core.rules.smells.SM07 import SM07
 from src.core.rules.smells.smells import smells
 from src.core.analysis.lexical.Token import Token
-from src.core.analysis.lexical.modules.shell.Token import Token as TokenShell
+from src.core.analysis.lexical.shell.Token import Token as TokenShell
 
 class TestSM07(unittest.TestCase):
 

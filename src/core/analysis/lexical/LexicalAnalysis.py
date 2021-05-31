@@ -1,6 +1,6 @@
 import dockerfile
 from .Token import Token
-from .modules.shell.ShellLexicalAnalysis import ShellLexicalAnalysis
+from .shell.ShellLexicalAnalysis import ShellLexicalAnalysis
 
 class LexicalAnalysis:
 
