@@ -28,5 +28,10 @@ smells = {
     "smell": "Uso de Algoritmos decriptografia fraca",
     "description": "Uso de algoritmo criptográfico quebrado ouinseguro ou intensidade de criptografia inadequado",
     "cwe": 327
+  },
+    "SM08": {
+    "smell": "Permissão total ao sistema de arquivos",
+    "description": "Atribuição de Permissão Incorreta para Recurso Crı́tico",
+    "cwe": 732
   }
 }
