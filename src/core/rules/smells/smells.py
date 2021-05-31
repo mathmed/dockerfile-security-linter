@@ -23,5 +23,10 @@ smells = {
     "smell": "Uso de HTTP sem TLS",
     "description": "Transmissão de informações em texto claro",
     "cwe": 319
+  },
+    "SM07": {
+    "smell": "Uso de Algoritmos decriptografia fraca",
+    "description": "Uso de algoritmo criptográfico quebrado ouinseguro ou intensidade de criptografia inadequado",
+    "cwe": 327
   }
 }

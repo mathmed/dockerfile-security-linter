@@ -4,6 +4,7 @@ from .smells.SM02 import SM02
 from .smells.SM03 import SM03
 from .smells.SM04 import SM04
 from .smells.SM06 import SM06
+from .smells.SM07 import SM07
 
 class Engine:
 
@@ -14,11 +15,14 @@ class Engine:
     def run(self):
 
         for token in self.tokens:
+
             sm01 = SM01(token).validade()
             sm02 = SM02(token).validade()
             sm03 = SM03(token).validade()
             sm04 = SM04(token).validade()
             sm06 = SM06(token).validade()
+            sm07 = SM07(token).validade()
+
             if(sm01):
                 self.smells.append(sm01)
             if(sm02):
@@ -29,4 +33,7 @@ class Engine:
                 self.smells.append(sm04)
             if(sm06):
                 self.smells.append(sm06)
+            if(sm07):
+                self.smells.append(sm07)
+                
         return self.smells
