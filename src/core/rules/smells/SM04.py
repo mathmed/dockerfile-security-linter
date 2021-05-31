@@ -1,6 +1,6 @@
 
 # Security Smell 04 - Vinculação com endereço IP impróprio - Controle de acesso inadequado (CWE-284)
-from .smells import *
+from .helpers.smells import *
 
 class SM04:
     def __init__(self, token):

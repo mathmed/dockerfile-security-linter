@@ -1,6 +1,6 @@
 
 # Security Smell 06 - Uso de HTTP sem TLS - Transmissão de informações confidenciaisem texto claro (CWE-319)
-from .smells import *
+from .helpers.smells import *
 
 class SM06:
     def __init__(self, token):

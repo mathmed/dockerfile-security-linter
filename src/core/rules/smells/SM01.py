@@ -1,6 +1,6 @@
 
 # Security Smell 01 - Admin por padrão - Execução com privilégios desnecessários (CWE-250)
-from .smells import *
+from .helpers.smells import *
 
 class SM01:
 

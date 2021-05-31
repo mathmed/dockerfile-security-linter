@@ -1,6 +1,6 @@
 
 # Security Smell 07 - Uso de Algoritmos decriptografia fraca - Uso de algoritmo criptográfico quebrado ouinseguro ou intensidade de criptografia inadequado (CWE-327, 328)
-from .smells import *
+from .helpers.smells import *
 
 class SM07:
     def __init__(self, token):

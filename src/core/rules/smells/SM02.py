@@ -1,6 +1,6 @@
 
 # Security Smell 02 - Senha vazia - Senha vazia no arquivo de configuração (CWE-258)
-from .smells import *
+from .helpers.smells import *
 
 class SM02:
     def __init__(self, token):

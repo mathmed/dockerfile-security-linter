@@ -1,6 +1,6 @@
 
 # Security Smell 03 - Credenciais definidas em texto claro - Uso de senha em texto claro (CWE-259)
-from .smells import *
+from .helpers.smells import *
 
 class SM03:
     def __init__(self, token):
