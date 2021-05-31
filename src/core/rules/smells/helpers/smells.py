@@ -19,6 +19,11 @@ smells = {
     "description": "Controle de acesso inadequado",
     "cwe": 284
   },
+    "SM05": {
+    "smell": "Comentário suspeito",
+    "description": "Comentário suspeito",
+    "cwe": 546
+  },
     "SM06": {
     "smell": "Uso de HTTP sem TLS",
     "description": "Transmissão de informações em texto claro",
