@@ -41,7 +41,7 @@ smells = {
   },
     "SM09": {
     "smell": "Uso de imagens Docker não oficiais",
-    "description": "As imagens oficiais são mantidas pela empresa Docker e disponibilizadas no dockerhub",
+    "description": "As imagens oficiais são mantidas pela empresa Docker e disponibilizadas no Dockerhub",
     "cwe": ""
   }
 }
