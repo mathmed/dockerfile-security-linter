@@ -33,5 +33,10 @@ smells = {
     "smell": "Permissão total ao sistema de arquivos",
     "description": "Atribuição de Permissão Incorreta para Recurso Crı́tico",
     "cwe": 732
+  },
+    "SM09": {
+    "smell": "Uso de imagens Docker não oficiais",
+    "description": "As imagens oficiais são mantidas pela empresa Docker e disponibilizadas no dockerhub",
+    "cwe": ""
   }
 }
