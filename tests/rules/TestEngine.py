@@ -1,6 +1,7 @@
 import unittest
 from unittest.mock import MagicMock
 from src.core.analysis.lexical.Token import Token
+from src.core.analysis.lexical.modules.shell.Token import Token as TokenShell
 from src.core.rules.Engine import Engine
 from src.core.rules.smells.smells import smells
 
@@ -55,6 +56,16 @@ class TestEngine(unittest.TestCase):
                     "start_line": "any_start", 
                     "end_line": "any_end", 
                     "security_smell": smells["SM06"]
+                }
+        self.assertEqual(sut.run(), [expected])
+
+    def test_engine_should_return_sm07_smell(self):
+        sut = Engine([Token("run", "any_original", "any_start", "any_end", [TokenShell("usermod", ["(mkpasswd -H md5)"])])])
+        expected = {
+                    "command": "any_original", 
+                    "start_line": "any_start", 
+                    "end_line": "any_end", 
+                    "security_smell": smells["SM07"]
                 }
         self.assertEqual(sut.run(), [expected])
         
