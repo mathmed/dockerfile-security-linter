@@ -13,7 +13,12 @@ class DockerfileAnalysis(Resource):
             lexical = LexicalAnalysis(json_data["dockerfile"])
             lexical.parse()
             tokens = lexical.get_tokens()
-            return jsonify(result=Engine(tokens).run())
+            result = Engine(tokens).run()
 
+            if(len(result) > 0):
+                return jsonify(result=Engine(tokens).run())
+            else:
+                return jsonify(result="Nenhuma vulnerabilidade encontrada")
+                
         except:
             return jsonify(result="Erro ao realizar parse do Dockerfile")
