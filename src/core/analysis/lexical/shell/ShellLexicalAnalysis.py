@@ -12,31 +12,34 @@ class ShellLexicalAnalysis:
         return self.tokens
 
     def parse(self):
-        tokens = bashlex.parse(re.sub(' +', ' ', self.command))
+        tokens = list(bashlex.split(re.sub(' +', ' ', self.command)))
+        tokens = self.process_operators(tokens)
         self.process_tokens(tokens)
 
     def process_tokens(self, tokens):
-        for command_shell in tokens:
-            if(command_shell.kind == "list"):
-                for sentence in command_shell.parts:
-                    if(sentence.kind != "operator"):
-                        token = Token()
-                        token.set_directive(sentence.parts[0].word)
-                        words_arr = []
-                        for operate in sentence.parts[1:]:
-                            words_arr.append(operate.word)
-                        token.set_value(words_arr)
-                        self.tokens.append(token)
-            else:
-                if(command_shell.kind != "operator"):
-                    token = Token()
-                    token.set_directive(command_shell.parts[0].word)
-                    words_arr = []
-                    for operate in command_shell.parts[1:]:
-                        words_arr.append(operate.word)
-                    token.set_value(words_arr)
-                    self.tokens.append(token)
-            
+        for sentence in tokens:
+            token = Token()
+            token.set_directive(sentence[0])
+            words_arr = []
+            for operate in sentence[1:]:
+                words_arr.append(operate)
+            token.set_value(words_arr)
+            self.tokens.append(token)
 
-                        
+    def process_operators(self, command):
+        array = []
+        last_split=0
+        for i in range(len(command)):
+            if(command[i] == "&&" or command[i] == "||"):
+                if(last_split == 0):
+                    array.append(command[0:i])
+                else:
+                    array.append(command[last_split+1:i])
+                last_split=i
+            if(i == len(command)-1):
+                if(last_split == 0):
+                    array.append(command[0:i+1])
+                else:
+                    array.append(command[last_split+1:i+1])
+        return array
         
