@@ -20,5 +20,6 @@ class DockerfileAnalysis(Resource):
             else:
                 return jsonify(result="Nenhuma vulnerabilidade encontrada")
                 
-        except:
+        except Exception as e:
+            print(e)
             return jsonify(result="Erro ao realizar parse do Dockerfile")
