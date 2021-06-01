@@ -14,6 +14,6 @@ class NaturalAnalysis:
 
         commands = self.dockerfile_content.splitlines()
         for command in commands:
-            if(command and command.strip()[0] == "#"):
+            if(len(command.strip()) > 0 and command.strip()[0] == "#"):
                 token = Token("comment", command.strip()[1:].strip(), "", "", command.strip()[1:].strip())
                 self.tokens.append(token)
