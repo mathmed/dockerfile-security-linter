@@ -11,7 +11,7 @@ smells = {
   },
     "SM03": {
     "smell": "Credenciais definidas em texto claro",
-    "description": "Uso de senha em texto claro",
+    "description": "Uso de credenciais em texto claro",
     "cwe": 259
   },
     "SM04": {
@@ -43,5 +43,10 @@ smells = {
     "smell": "Uso de imagens Docker não oficiais",
     "description": "As imagens oficiais são mantidas pela empresa Docker e disponibilizadas no Dockerhub",
     "cwe": ""
+  },
+    "SM10": {
+    "smell": "Uso de funções ou comandos obsoletos",
+    "description": "O código usa funções descontinuadas ou obsoletas, o que sugere que o código não foi revisado ou mantido ativamente.",
+    "cwe": 477
   }
 }
