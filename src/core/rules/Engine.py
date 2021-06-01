@@ -8,6 +8,7 @@ from .smells.SM06 import SM06
 from .smells.SM07 import SM07
 from .smells.SM08 import SM08
 from .smells.SM09 import SM09
+from .smells.SM10 import SM10
 
 class Engine:
 
@@ -28,6 +29,7 @@ class Engine:
             sm07 = SM07(token).validade()
             sm08 = SM08(token).validade()
             sm09 = SM09(token).validade()
+            sm10 = SM10(token).validade()
 
             if(sm01):
                 self.smells.append(sm01)
@@ -47,5 +49,7 @@ class Engine:
                 self.smells.append(sm08)      
             if(sm09):
                 self.smells.append(sm09)  
-
+            if(sm10):
+                 self.smells.append(sm09)
+                 
         return self.smells
