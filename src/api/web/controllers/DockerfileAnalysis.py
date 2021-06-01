@@ -7,8 +7,13 @@ from core.rules.Engine import Engine
 class DockerfileAnalysis(Resource):
 
     def post(self):
-        json_data = request.get_json(force=True)
-        lexical = LexicalAnalysis(json_data["dockerfile"])
-        lexical.parse()
-        tokens = lexical.get_tokens()
-        return jsonify(result=Engine(tokens).run())
+        try:
+
+            json_data = request.get_json(force=True)
+            lexical = LexicalAnalysis(json_data["dockerfile"])
+            lexical.parse()
+            tokens = lexical.get_tokens()
+            return jsonify(result=Engine(tokens).run())
+
+        except:
+            return jsonify(result="Erro ao realizar parse do Dockerfile")
