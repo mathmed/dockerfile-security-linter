@@ -1,6 +1,8 @@
 version: "3.5"
 services:
   dsl:
+    ports:
+      - ${APP_PORT}:5100
     build: .
     volumes:
       - .:/home/dsl
