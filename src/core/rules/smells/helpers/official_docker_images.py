@@ -1,4 +1,6 @@
 official_docker_images = [
+    "debian",
+    "microsoft",
     "couchbase",
     "alpine",
     "busybox",
