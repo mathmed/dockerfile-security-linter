@@ -1,2 +1,4 @@
 dockerfile==3.1.0
 bashlex==0.15
+flask==2.0.1
+flask-restful==0.3.9
