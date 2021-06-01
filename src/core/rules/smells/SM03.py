@@ -19,7 +19,7 @@ class SM03:
 
     def verify_env_directive(self, token):
         if(token.directive == "env"):
-            if(self.includes_pass(token.value[0]) or self.includes_user(token.value[0])):
+            if(self.includes_pass(token.value[0]) or self.includes_user(token.value[0]) or self.includes_key(token.value[0])):
                 if(len(token.value) >= 1 and token.value[1].replace(" ", "") != "''"):
                     return {
                         "command": token.original, 
@@ -34,7 +34,7 @@ class SM03:
             for command in token.value:
                 if(command.directive.lower() == "export"):
                     for op in command.value:
-                        if(self.includes_pass(op) or self.includes_user(op)):
+                        if(self.includes_pass(op) or self.includes_user(op) or self.includes_key(op)):
                             return {
                                 "command": token.original, 
                                 "start_line": token.start_line, 
@@ -49,3 +49,5 @@ class SM03:
     def includes_user(self, string):
         return "user" in string.lower() or "usuario" in string.lower()
 
+    def includes_key(self, string):
+        return "key" in string.lower() or "chave" in string.lower()

@@ -10,9 +10,13 @@ class SM02:
         token = self.token
 
         env_directive = self.verify_env_directive(token)
+        run_directive = self.verify_run_directive(token)
 
         if(env_directive):
             return env_directive
+
+        if(run_directive):
+            return run_directive
 
         return False
 
@@ -27,7 +31,31 @@ class SM02:
                         "security_smell": smells["SM02"]
                     }
         return False
+
+    def verify_run_directive(self, token):
+        if(token.directive == "run"):
+            for command in token.value:
+                if(command.directive.lower() == "echo"):
+                    for op in command.value:
+                        if("nopasswd" in op.lower() or "all=nopasswd" in op.lower() or "nopasswd:all" in op.lower()):
+                            return {
+                                "command": token.original, 
+                                "start_line": token.start_line, 
+                                "end_line": token.end_line, 
+                                "security_smell": smells["SM02"]
+                            }
+            
+                if(command.directive.lower() == "adduser" or command.directive.lower() == "useradd"):
+                    for op in command.value:
+                        if("disabled-password" in op.lower()):
+                            return {
+                                "command": token.original, 
+                                "start_line": token.start_line, 
+                                "end_line": token.end_line, 
+                                "security_smell": smells["SM02"]
+                            }
+        return False
             
     def includes_pass(self, string):
-        return "pass" in string.lower() or "senha" in string.lower()
+        return "pass" in string.lower() or "senha" in string.lower() 
 

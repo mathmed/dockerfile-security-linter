@@ -21,7 +21,7 @@ class SM08:
             for command in token.value:
                 if(command.directive.lower() == "chmod"):
                     for op in command.value:
-                        if("777" in op.lower()):
+                        if("777" in op.lower() or "a+rwx" in op.lower()):
                             return {
                                 "command": token.original, 
                                 "start_line": token.start_line, 
