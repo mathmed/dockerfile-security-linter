@@ -1,6 +1,6 @@
 
 # Security Smell 02 - Senha vazia - Senha vazia no arquivo de configuração (CWE-258)
-from .helpers.smells import *
+from .lists.smells import *
 
 class SM02:
     def __init__(self, token):
@@ -21,7 +21,7 @@ class SM02:
         return False
 
     def verify_env_directive(self, token):
-        if(token.directive == "env"):
+        if(token.directive.lower() == "env" or token.directive.lower() == "arg"):
             if(self.includes_pass(token.value[0])):
                 if(len(token.value) >= 1 and token.value[1].replace(" ", "") == "''"):
                     return {
@@ -31,9 +31,10 @@ class SM02:
                         "security_smell": smells["SM02"]
                     }
         return False
+        
 
     def verify_run_directive(self, token):
-        if(token.directive == "run"):
+        if(token.directive.lower() == "run"):
             for command in token.value:
                 if(command.directive.lower() == "echo"):
                     for op in command.value:

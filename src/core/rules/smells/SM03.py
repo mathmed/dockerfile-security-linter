@@ -1,6 +1,6 @@
 
 # Security Smell 03 - Credenciais definidas em texto claro - Uso de senha em texto claro (CWE-259)
-from .helpers.smells import *
+from .lists.smells import *
 
 class SM03:
     def __init__(self, token):
@@ -18,7 +18,7 @@ class SM03:
         return False
 
     def verify_env_directive(self, token):
-        if(token.directive == "env"):
+        if(token.directive.lower() == "env" or token.directive.lower() == "arg"):
             if(self.includes_pass(token.value[0]) or self.includes_user(token.value[0]) or self.includes_key(token.value[0])):
                 if(len(token.value) >= 1 and token.value[1].replace(" ", "") != "''"):
                     return {
@@ -30,7 +30,7 @@ class SM03:
         return False
 
     def verify_run_directive(self, token):
-        if(token.directive == "run"):
+        if(token.directive.lower() == "run"):
             for command in token.value:
                 if(command.directive.lower() == "export"):
                     for op in command.value:

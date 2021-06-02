@@ -1,6 +1,6 @@
 
 # Security Smell 04 - Vinculação com endereço IP impróprio - Controle de acesso inadequado (CWE-284)
-from .helpers.smells import *
+from .lists.smells import *
 
 class SM04:
     def __init__(self, token):
@@ -22,7 +22,8 @@ class SM04:
         return False
 
     def verify_env_directive(self, token):
-        if(token.directive.lower() == "env" and self.includes_host(token.value[0]) and "0.0.0.0" in token.value[1]):
+        if(token.directive.lower() == "env" or token.directive.lower() == "arg"):
+            if(self.includes_host(token.value[0]) and self.includes_suspicious_ip(token.value[1])):
                 return {
                         "command": token.original, 
                         "start_line": token.start_line, 
@@ -34,7 +35,7 @@ class SM04:
     def verify_cmd_directive(self, token):
         if(token.directive.lower() == "cmd" or token.directive.lower() == "entrypoint"):
             for item in token.value:
-                if("0.0.0.0" in item):
+                if(self.includes_suspicious_ip(item)):
                     return {
                             "command": token.original, 
                             "start_line": token.start_line, 
@@ -47,7 +48,7 @@ class SM04:
         if(token.directive.lower() == "run"):
             for command in token.value:
                 for op in command.value:
-                    if("0.0.0.0" in op):
+                    if(self.includes_suspicious_ip(op)):
                         return {
                             "command": token.original, 
                             "start_line": token.start_line, 
@@ -60,3 +61,6 @@ class SM04:
 
     def includes_host(self, string):
         return "host" in string.lower() or "url" in string.lower() or "domain" in string.lower() or "dominio" in string.lower()
+
+    def includes_suspicious_ip(self, string):
+        return "0.0.0.0" in string or "--ip='*'" in string or "--ip=*" in string or "--host=*" in string or "--host='*'" in string

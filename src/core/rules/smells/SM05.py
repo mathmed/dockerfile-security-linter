@@ -1,7 +1,7 @@
 
 # Security Smell 05 - Comentário suspeito - Comentário suspeito (CWE-546)
-from .helpers.smells import *
-from .helpers.suspicious_words import *
+from .lists.smells import *
+from .lists.suspicious_words import *
 
 class SM05:
     def __init__(self, token):

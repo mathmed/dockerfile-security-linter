@@ -1,6 +1,6 @@
 
 # Security Smell 01 - Admin por padrão - Execução com privilégios desnecessários (CWE-250)
-from .helpers.smells import *
+from .lists.smells import *
 
 class SM01:
 
@@ -10,14 +10,14 @@ class SM01:
     def validade(self):
 
         token = self.token
-        env_directive = self.verify_env_directive(token)
+        user_directive = self.verify_user_directive(token)
 
-        if(env_directive):
-            return env_directive
+        if(user_directive):
+            return user_directive
 
         return False
 
-    def verify_env_directive(self, token):
+    def verify_user_directive(self, token):
 
         if(self.token.directive == "user"):
             if(self.token.value[0] == "root"):

@@ -1,6 +1,6 @@
 # Security Smell 09 - Uso de imagens Docker não oficiais - As imagens oficiais são mantidas pela empresa Docker e disponibilizadas no dockerhub
-from .helpers.smells import *
-from .helpers.official_docker_images import *
+from .lists.smells import *
+from .lists.official_docker_images import *
 
 class SM09:
     def __init__(self, token):

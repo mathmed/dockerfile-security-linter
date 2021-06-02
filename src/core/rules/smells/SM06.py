@@ -1,6 +1,6 @@
 
 # Security Smell 06 - Uso de HTTP sem TLS - Transmissão de informações confidenciaisem texto claro (CWE-319)
-from .helpers.smells import *
+from .lists.smells import *
 
 class SM06:
 
@@ -23,7 +23,7 @@ class SM06:
 
 
     def verify_env_directive(self, token):
-        if(token.directive.lower() == "env"):
+        if(token.directive.lower() == "env" or token.directive.lower() == "arg"):
             if(self.includes_host(token.value[0]) and ("http://" in token.value[1] or ("https://" not in token.value[1] and "$" not in token.value[1]))):
                 return {
                         "command": token.original, 

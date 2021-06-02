@@ -1,6 +1,6 @@
 
 # Security Smell 08 - Permissão total ao sistema de arquivos - Atribuição de Permissão Incorreta para Recurso Crı́tico (CWE-732)
-from .helpers.smells import *
+from .lists.smells import *
 
 class SM08:
     def __init__(self, token):

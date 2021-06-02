@@ -1,6 +1,6 @@
 import unittest
 from src.core.rules.smells.SM09 import SM09
-from src.core.rules.smells.helpers.smells import smells
+from src.core.rules.smells.lists.smells import smells
 from src.core.analysis.lexical.Token import Token
 
 class TestSM09(unittest.TestCase):

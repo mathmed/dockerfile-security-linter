@@ -1,6 +1,6 @@
 import unittest
 from src.core.rules.smells.SM03 import SM03
-from src.core.rules.smells.helpers.smells import smells
+from src.core.rules.smells.lists.smells import smells
 from src.core.analysis.lexical.Token import Token
 from src.core.analysis.lexical.shell.Token import Token as TokenShell
 

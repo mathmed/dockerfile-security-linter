@@ -1,8 +1,8 @@
 # Security Smell 10 - Uso de funções ou comandos obsoletos
 # O código usa funções descontinuadas ou obsoletas, o que sugere que o código não foi revisado ou mantido ativamente.
 # CWE-477
-from .helpers.smells import *
-from .helpers.obsolete_linux_commands import *
+from .lists.smells import *
+from .lists.obsolete_linux_commands import *
 
 class SM10:
     def __init__(self, token):
