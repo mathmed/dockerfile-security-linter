@@ -28,5 +28,8 @@ suspicious_words = [
     "não mexa",
     "atenção",
     "atençao",
-    "warning"
+    "warning",
+    "nao sei",
+    "não sei",
+    "not sure"
 ]
