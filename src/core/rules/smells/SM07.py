@@ -1,6 +1,7 @@
 
 # Security Smell 07 - Uso de Algoritmos decriptografia fraca - Uso de algoritmo criptográfico quebrado ouinseguro ou intensidade de criptografia inadequado (CWE-327, 328)
 from .lists.smells import *
+from .helpers.verifications import *
 
 class SM07:
     def __init__(self, token):
@@ -20,7 +21,7 @@ class SM07:
         if(token.directive.lower() == "run"):
             for command in token.value:
                 for op in command.value:
-                    if("md5" in op.lower() and self.includes_pass(op.lower())):
+                    if("md5" in op.lower() and includes_pass(op.lower())):
                         return {
                             "command": token.original, 
                             "start_line": token.start_line, 
@@ -28,7 +29,4 @@ class SM07:
                             "security_smell": smells["SM07"]
                         }
         return False
-
-    def includes_pass(self, string):
-        return "pass" in string.lower() or "senha" in string.lower()
 

@@ -1,7 +1,7 @@
 
 # Security Smell 04 - Vinculação com endereço IP impróprio - Controle de acesso inadequado (CWE-284)
 from .lists.smells import *
-
+from .helpers.verifications import *
 class SM04:
     def __init__(self, token):
         self.token = token
@@ -22,8 +22,18 @@ class SM04:
         return False
 
     def verify_env_directive(self, token):
-        if(token.directive.lower() == "env" or token.directive.lower() == "arg"):
-            if(self.includes_host(token.value[0]) and self.includes_suspicious_ip(token.value[1])):
+        directive = token.directive.lower()
+        if(directive == "env" or directive == "arg"):
+
+            if(directive == "arg"):
+                sentence = token.value[0].split("=")
+                key = sentence[0]
+                value = "" if len(sentence) == 1 else sentence[1] 
+            else:
+                key = token.value[0]
+                value = token.value[1]
+
+            if(includes_host(key) and includes_suspicious_ip(value)):
                 return {
                         "command": token.original, 
                         "start_line": token.start_line, 
@@ -33,9 +43,10 @@ class SM04:
         return False
     
     def verify_cmd_directive(self, token):
-        if(token.directive.lower() == "cmd" or token.directive.lower() == "entrypoint"):
+        directive = token.directive.lower()
+        if(directive == "cmd" or directive == "entrypoint"):
             for item in token.value:
-                if(self.includes_suspicious_ip(item)):
+                if(includes_suspicious_ip(item)):
                     return {
                             "command": token.original, 
                             "start_line": token.start_line, 
@@ -48,7 +59,7 @@ class SM04:
         if(token.directive.lower() == "run"):
             for command in token.value:
                 for op in command.value:
-                    if(self.includes_suspicious_ip(op)):
+                    if(includes_suspicious_ip(op)):
                         return {
                             "command": token.original, 
                             "start_line": token.start_line, 
@@ -56,11 +67,3 @@ class SM04:
                             "security_smell": smells["SM04"]
                         }
         return False
-
-
-
-    def includes_host(self, string):
-        return "host" in string.lower() or "url" in string.lower() or "domain" in string.lower() or "dominio" in string.lower()
-
-    def includes_suspicious_ip(self, string):
-        return "0.0.0.0" in string or "--ip='*'" in string or "--ip=*" in string or "--host=*" in string or "--host='*'" in string

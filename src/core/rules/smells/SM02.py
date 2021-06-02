@@ -1,6 +1,7 @@
 
 # Security Smell 02 - Senha vazia - Senha vazia no arquivo de configuração (CWE-258)
 from .lists.smells import *
+from .helpers.verifications import *
 
 class SM02:
     def __init__(self, token):
@@ -21,9 +22,19 @@ class SM02:
         return False
 
     def verify_env_directive(self, token):
-        if(token.directive.lower() == "env" or token.directive.lower() == "arg"):
-            if(self.includes_pass(token.value[0])):
-                if(len(token.value) >= 1 and token.value[1].replace(" ", "") == "''"):
+        directive = token.directive.lower()
+        if(directive == "env" or directive == "arg"):
+            
+            if(directive == "arg"):
+                sentence = token.value[0].split("=")
+                key = sentence[0]
+                value = "" if len(sentence) == 1 else sentence[1] 
+            else:
+                key = token.value[0]
+                value = token.value[1]
+
+            if(includes_pass(key)):
+                if(len(token.value) >= 1 and value.replace(" ", "") == "''"):
                     return {
                         "command": token.original, 
                         "start_line": token.start_line, 
@@ -38,7 +49,7 @@ class SM02:
             for command in token.value:
                 if(command.directive.lower() == "echo"):
                     for op in command.value:
-                        if("nopasswd" in op.lower() or "all=nopasswd" in op.lower() or "nopasswd:all" in op.lower()):
+                        if(includes_no_pass(op)):
                             return {
                                 "command": token.original, 
                                 "start_line": token.start_line, 
@@ -46,9 +57,9 @@ class SM02:
                                 "security_smell": smells["SM02"]
                             }
             
-                if(command.directive.lower() == "adduser" or command.directive.lower() == "useradd"):
+                if(includes_add_user_command(command.directive)):
                     for op in command.value:
-                        if("disabled-password" in op.lower()):
+                        if(includes_disabled_password(op)):
                             return {
                                 "command": token.original, 
                                 "start_line": token.start_line, 
@@ -57,6 +68,3 @@ class SM02:
                             }
         return False
             
-    def includes_pass(self, string):
-        return "pass" in string.lower() or "senha" in string.lower() 
-

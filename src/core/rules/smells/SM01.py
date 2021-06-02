@@ -19,8 +19,8 @@ class SM01:
 
     def verify_user_directive(self, token):
 
-        if(self.token.directive == "user"):
-            if(self.token.value[0] == "root"):
+        if(token.directive.lower() == "user"):
+            if(token.value[0].lower() == "root"):
                 return {
                     "command": self.token.original, 
                     "start_line": self.token.start_line, 

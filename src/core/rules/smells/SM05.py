@@ -1,7 +1,7 @@
 
 # Security Smell 05 - Comentário suspeito - Comentário suspeito (CWE-546)
 from .lists.smells import *
-from .lists.suspicious_words import *
+from .helpers.verifications import *
 
 class SM05:
     def __init__(self, token):
@@ -19,7 +19,7 @@ class SM05:
 
     def verify_comment_directive(self, token):
         if(token.directive.lower() == "comment"):
-            if(self.includes_suspicious_word(token.value.lower())):
+            if(includes_suspicious_word(token.value.lower())):
                 return {
                         "command": token.original, 
                         "start_line": token.start_line, 
@@ -28,7 +28,4 @@ class SM05:
                     }
         return False
 
-    def includes_suspicious_word(self, sentence):
-        for word in suspicious_words:
-            if(word in sentence):
-                return True
+

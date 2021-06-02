@@ -1,6 +1,7 @@
 
 # Security Smell 08 - Permissão total ao sistema de arquivos - Atribuição de Permissão Incorreta para Recurso Crı́tico (CWE-732)
 from .lists.smells import *
+from .helpers.verifications import *
 
 class SM08:
     def __init__(self, token):
@@ -21,7 +22,7 @@ class SM08:
             for command in token.value:
                 if(command.directive.lower() == "chmod"):
                     for op in command.value:
-                        if("777" in op.lower() or "a+rwx" in op.lower()):
+                        if(includes_permission(op)):
                             return {
                                 "command": token.original, 
                                 "start_line": token.start_line, 

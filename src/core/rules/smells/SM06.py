@@ -1,6 +1,7 @@
 
 # Security Smell 06 - Uso de HTTP sem TLS - Transmissão de informações confidenciaisem texto claro (CWE-319)
 from .lists.smells import *
+from .helpers.verifications import *
 
 class SM06:
 
@@ -23,8 +24,18 @@ class SM06:
 
 
     def verify_env_directive(self, token):
-        if(token.directive.lower() == "env" or token.directive.lower() == "arg"):
-            if(self.includes_host(token.value[0]) and ("http://" in token.value[1] or ("https://" not in token.value[1] and "$" not in token.value[1]))):
+        directive = token.directive.lower()
+        if(directive == "env" or directive == "arg"):
+
+            if(directive == "arg"):
+                sentence = token.value[0].split("=")
+                key = sentence[0]
+                value = "" if len(sentence) == 1 else sentence[1] 
+            else:
+                key = token.value[0]
+                value = token.value[1]
+
+            if(includes_host(key) and ("http://" in value or ("https://" not in value and "$" not in value))):
                 return {
                         "command": token.original, 
                         "start_line": token.start_line, 
@@ -34,7 +45,8 @@ class SM06:
         return False
 
     def verify_cmd_directive(self, token):
-        if(token.directive.lower() == "cmd" or token.directive.lower() == "entrypoint"):
+        directive = token.directive.lower()
+        if(directive == "cmd" or directive == "entrypoint"):
             for item in token.value:
                 if("http://" in item):
                     return {
@@ -46,5 +58,3 @@ class SM06:
         return False
 
 
-    def includes_host(self, string):
-        return "host" in string.lower() or "url" in string.lower() or "domain" in string.lower() or "dominio" in string.lower()
