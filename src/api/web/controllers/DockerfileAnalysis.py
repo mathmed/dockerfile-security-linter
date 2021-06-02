@@ -2,6 +2,7 @@ from flask_restful import Resource
 from flask import  jsonify, request
 from core.analysis.lexical.LexicalAnalysis import LexicalAnalysis
 from core.rules.Engine import Engine
+import traceback
 
 
 class DockerfileAnalysis(Resource):
@@ -21,5 +22,5 @@ class DockerfileAnalysis(Resource):
                 return jsonify(result="Nenhuma vulnerabilidade encontrada")
                 
         except Exception as e:
-            print(e)
+            print(traceback.format_exc())
             return jsonify(result="Erro ao realizar parse do Dockerfile")
