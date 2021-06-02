@@ -21,4 +21,4 @@ ENV ASANA_ORGANIZATION 20556533848969
 CMD bin/asana_export_importer --api-key=$ASANA_API_KEY --organization=$ASANA_ORGANIZATION /app/example/export.json
 
 # Comentário por Mateus Medeiros
-# SM05 linha 18
+# SM03 linha 18

@@ -23,3 +23,6 @@ USER zplug
 WORKDIR /home/zplug
 
 CMD ["/bin/zsh"]
+
+# Comentário por Mateus Medeiros
+# SM03 linha 10

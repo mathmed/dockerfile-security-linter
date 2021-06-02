@@ -32,7 +32,9 @@ COPY $SERVER_ARTIFACT $SERVER_ROOT/
 
 
 # Comentário por Mateus Medeiros
-# SM08 linha 1
+# SM09 linha 1
+# SM06 linha 14
 # SM04 linha 17
+# SM06 linha 17
 # SM03 linha 24
 # SM05 linha 9

@@ -45,4 +45,4 @@ CMD  service td-agent start  &&  sleep 10  &&  curl --retry 5 --retry-max-time 1
 
 # Comentário por Mateus Medeiros
 # SM09 linha 12
-# SM04 linha 43
+# SM06 linha 43

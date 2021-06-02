@@ -24,6 +24,7 @@ ENTRYPOINT php-fpm && nginx && cd html/ \
     && php start.php
 
 # Comentário por Mateus Medeiros
+# SM09 linha 1
 # SM06 linha 7
 # SM03 linha 8
 # SM02 linha 9

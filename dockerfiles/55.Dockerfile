@@ -56,4 +56,5 @@ WORKDIR /home/user
 # Comentário por Mateus Medeiros
 # SM03 linha 3
 # SM02 linha 25
+# SM05 linha 46
 # SM08 linha 31
