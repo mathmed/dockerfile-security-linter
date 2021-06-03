@@ -4,6 +4,34 @@ from src.core.analysis.lexical.Token import Token
 from src.core.analysis.lexical.shell.Token import Token as TokenShell
 
 class TestLexicalAnalysis(unittest.TestCase):
+
+
+    def test_parse(self):
+        sut = LexicalAnalysis("FROM any\nUSER root\nENV a=any\nARG a=any\n# comment\nRUN apt install\nENV pass='a' pass2='b'")
+        sut.parse()
+        tokens = sut.get_tokens()
+
+        self.assertEqual(tokens[0].directive, "from")
+        self.assertEqual(tokens[0].value[0], "any")
+
+        self.assertEqual(tokens[1].directive, "user")
+        self.assertEqual(tokens[1].value[0], "root")
+
+        self.assertEqual(tokens[2].directive, "env")
+        self.assertEqual(tokens[2].value, [("a", "any")])
+
+        self.assertEqual(tokens[3].directive, "arg")
+        self.assertEqual(tokens[3].value, [["a", "any"]])
+
+        self.assertEqual(tokens[4].directive, "run")
+        self.assertEqual(tokens[4].value[0].directive, "apt")
+
+        self.assertEqual(tokens[5].directive, "env")
+        self.assertEqual(tokens[5].value, [["pass", "'a'"], ["pass2", "'b'"]])
+
+        self.assertEqual(tokens[6].directive, "comment")
+        self.assertEqual(tokens[6].value, "comment")
+
     def test_convert_tokens(self):
         sut = LexicalAnalysis('any_path')
         tokens = [["any_cmd", "any_sub", "any_json", "any_original", "any_start", "any_end", "any_flags", "any_value"]]
