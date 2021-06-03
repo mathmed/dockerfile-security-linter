@@ -38,7 +38,7 @@ class SM03:
             for command in token.value:
                 if(command.directive.lower() == "export" or command.directive.lower() == "echo"):
                     for op in command.value:
-                        if(includes_pass(op) or includes_user(op) or includes_key(op)):
+                        if((includes_pass(op) or includes_user(op) or includes_key(op)) and not includes_no_pass(op)):
                             return {
                                 "command": token.original, 
                                 "start_line": token.start_line, 
