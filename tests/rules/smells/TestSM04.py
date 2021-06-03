@@ -16,7 +16,20 @@ class TestSM04(unittest.TestCase):
                     "command": "any_original", 
                     "start_line": "any_start", 
                     "end_line": "any_end", 
-                    "security_smell": smells["SM04"]
+                    "security_smell": smells["SM04"],
+                    "code": "SM04"
+                }
+        self.assertEqual(sut.validade(), expected)
+
+    def test_sm04_should_return_dict_on_env_directive(self):
+        sut = SM04(Token("env", "any_original", "any_start", "any_end", [["any_host", "0.0.0.0"]]))
+        expected = {
+                    "command": "any_original", 
+                    "start_line": "any_start", 
+                    "end_line": "any_end", 
+                    "security_smell": smells["SM04"],
+                    "code": "SM04"
+
                 }
         self.assertEqual(sut.validade(), expected)
 
@@ -26,7 +39,9 @@ class TestSM04(unittest.TestCase):
                     "command": "any_original", 
                     "start_line": "any_start", 
                     "end_line": "any_end", 
-                    "security_smell": smells["SM04"]
+                    "security_smell": smells["SM04"],
+                    "code": "SM04"
+
                 }
         self.assertEqual(sut.validade(), expected)
         

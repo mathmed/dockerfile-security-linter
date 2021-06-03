@@ -16,7 +16,20 @@ class TestSM06(unittest.TestCase):
                     "command": "any_original", 
                     "start_line": "any_start", 
                     "end_line": "any_end", 
-                    "security_smell": smells["SM06"]
+                    "security_smell": smells["SM06"],
+                    "code": "SM06"
+
+                }
+        self.assertEqual(sut.validade(), expected)
+
+    def test_sm06_should_return_dict_on_env_directive(self):
+        sut = SM06(Token("env", "any_original", "any_start", "any_end", [["any_host", "http://aa.com"]]))
+        expected = {
+                    "command": "any_original", 
+                    "start_line": "any_start", 
+                    "end_line": "any_end", 
+                    "security_smell": smells["SM06"],
+                    "code": "SM06"
                 }
         self.assertEqual(sut.validade(), expected)
 
@@ -26,7 +39,8 @@ class TestSM06(unittest.TestCase):
                     "command": "any_original", 
                     "start_line": "any_start", 
                     "end_line": "any_end", 
-                    "security_smell": smells["SM06"]
+                    "security_smell": smells["SM06"],
+                    "code": "SM06"
                 }
         self.assertEqual(sut.validade(), expected)
         

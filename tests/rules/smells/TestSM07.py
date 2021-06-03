@@ -16,7 +16,8 @@ class TestSM07(unittest.TestCase):
                     "command": "any_original", 
                     "start_line": "any_start", 
                     "end_line": "any_end", 
-                    "security_smell": smells["SM07"]
+                    "security_smell": smells["SM07"],
+                    "code": "SM07"
                 }
         self.assertEqual(sut.validade(), expected)
         
