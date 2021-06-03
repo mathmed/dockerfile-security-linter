@@ -20,7 +20,7 @@ class SM08:
     def verify_run_directive(self, token):
         if(token.directive.lower() == "run"):
             for command in token.value:
-                if(command.directive.lower() == "chmod"):
+                if(command.directive.lower() == "chmod" or command.directive.lower() == "mkdir"):
                     for op in command.value:
                         if(includes_permission(op)):
                             return {
