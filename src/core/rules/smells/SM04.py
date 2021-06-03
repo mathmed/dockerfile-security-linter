@@ -31,7 +31,8 @@ class SM04:
                             "command": token.original, 
                             "start_line": token.start_line, 
                             "end_line": token.end_line, 
-                            "security_smell": smells["SM04"]
+                            "security_smell": smells["SM04"],
+                            "code": "SM04"
                     }
 
         return False
@@ -45,7 +46,8 @@ class SM04:
                             "command": token.original, 
                             "start_line": token.start_line, 
                             "end_line": token.end_line, 
-                            "security_smell": smells["SM04"]
+                            "security_smell": smells["SM04"],
+                            "code": "SM04"
                         }
         return False
 
@@ -58,6 +60,7 @@ class SM04:
                             "command": token.original, 
                             "start_line": token.start_line, 
                             "end_line": token.end_line, 
-                            "security_smell": smells["SM04"]
+                            "security_smell": smells["SM04"],
+                            "code": "SM04"
                         }
         return False

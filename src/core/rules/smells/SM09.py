@@ -23,7 +23,8 @@ class SM09:
                         "command": token.original, 
                         "start_line": token.start_line, 
                         "end_line": token.end_line, 
-                        "security_smell": smells["SM09"]
+                        "security_smell": smells["SM09"],
+                        "code": "SM09"
                     }
         return False
 

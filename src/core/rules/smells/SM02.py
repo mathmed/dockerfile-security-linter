@@ -32,7 +32,8 @@ class SM02:
                             "command": token.original, 
                             "start_line": token.start_line, 
                             "end_line": token.end_line, 
-                            "security_smell": smells["SM02"]
+                            "security_smell": smells["SM02"],
+                            "code": "SM02"
                         }
 
         return False
@@ -48,7 +49,8 @@ class SM02:
                                 "command": token.original, 
                                 "start_line": token.start_line, 
                                 "end_line": token.end_line, 
-                                "security_smell": smells["SM02"]
+                                "security_smell": smells["SM02"],
+                                "code": "SM02"
                             }
             
                 if(includes_add_user_command(command.directive)):
@@ -58,7 +60,8 @@ class SM02:
                                 "command": token.original, 
                                 "start_line": token.start_line, 
                                 "end_line": token.end_line, 
-                                "security_smell": smells["SM02"]
+                                "security_smell": smells["SM02"],
+                                "code": "SM02"
                             }
         return False
             

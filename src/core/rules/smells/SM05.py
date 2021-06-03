@@ -24,7 +24,8 @@ class SM05:
                         "command": token.original, 
                         "start_line": token.start_line, 
                         "end_line": token.end_line, 
-                        "security_smell": smells["SM05"]
+                        "security_smell": smells["SM05"],
+                        "code": "SM05"
                     }
         return False
 

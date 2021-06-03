@@ -25,7 +25,8 @@ class SM01:
                     "command": self.token.original, 
                     "start_line": self.token.start_line, 
                     "end_line": self.token.end_line, 
-                    "security_smell": smells["SM01"]
+                    "security_smell": smells["SM01"],
+                    "code": "SM01"
                 }
                 
         return False

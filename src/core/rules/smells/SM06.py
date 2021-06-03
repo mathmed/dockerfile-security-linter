@@ -35,7 +35,8 @@ class SM06:
                             "command": token.original, 
                             "start_line": token.start_line, 
                             "end_line": token.end_line, 
-                            "security_smell": smells["SM06"]
+                            "security_smell": smells["SM06"],
+                            "code": "SM06"
                         }
                 
         return False
@@ -49,7 +50,8 @@ class SM06:
                             "command": token.original, 
                             "start_line": token.start_line, 
                             "end_line": token.end_line, 
-                            "security_smell": smells["SM06"]
+                            "security_smell": smells["SM06"],
+                            "code": "SM06"
                         }
         return False
 

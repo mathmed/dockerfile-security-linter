@@ -21,12 +21,13 @@ class SM07:
         if(token.directive.lower() == "run"):
             for command in token.value:
                 for op in command.value:
-                    if("md5" in op.lower() and includes_pass(op.lower())):
+                    if(includes_weak_encryption(op)):
                         return {
                             "command": token.original, 
                             "start_line": token.start_line, 
                             "end_line": token.end_line, 
-                            "security_smell": smells["SM07"]
+                            "security_smell": smells["SM07"],
+                            "code": "SM07"
                         }
         return False
 
