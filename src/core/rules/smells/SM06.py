@@ -13,6 +13,7 @@ class SM06:
 
         cmd_directive = self.verify_cmd_directive(token)
         env_directive = self.verify_env_directive(token)
+        run_directive = self.verify_run_directive(token)
 
         if(cmd_directive):
             return cmd_directive
@@ -20,6 +21,9 @@ class SM06:
         if(env_directive):
             return env_directive
         
+        if(run_directive):
+            return run_directive
+
         return False
 
 
@@ -56,3 +60,17 @@ class SM06:
         return False
 
 
+    def verify_run_directive(self, token):
+        if(token.directive.lower() == "run"):
+            for command in token.value:
+                if(includes_service_start_command(command.directive)):
+                    for op in command.value:
+                        if("http://" in op):
+                            return {
+                                "command": token.original, 
+                                "start_line": token.start_line, 
+                                "end_line": token.end_line, 
+                                "security_smell": smells["SM06"],
+                                "code": "SM06"
+                            }
+        return False
