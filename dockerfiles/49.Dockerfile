@@ -49,3 +49,6 @@ COPY --from=base /app/static /app/static
 
 # Run gatekeeper.pex when container starts
 CMD ["python", "dist/gatekeeper.pex"]
+
+# Comentário por Mateus Medeiros
+# SM01

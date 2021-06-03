@@ -10,3 +10,6 @@ COPY ./build/. /srv/www/.
 RUN ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 
 EXPOSE 80
+
+# Comentário por Mateus Medeiros
+# SM01

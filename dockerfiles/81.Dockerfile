@@ -14,3 +14,4 @@ RUN /smtp-config.sh
 # Comentário por Mateus Medeiros
 # SM09 linha 2
 # SM06 linha 8
+# SM01

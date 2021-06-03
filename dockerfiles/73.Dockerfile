@@ -21,3 +21,4 @@ HEALTHCHECK --start-period=1m --interval=1m --timeout=3s \
 
 # Comentário por Mateus Medeiros
 # SM06 linha 19
+# SM01

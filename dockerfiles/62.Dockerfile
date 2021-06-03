@@ -27,3 +27,4 @@ ENTRYPOINT ["docker/run.sh"]
 
 # Comentário por Mateus Medeiros
 # SM04 linha 24
+# SM01

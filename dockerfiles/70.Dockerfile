@@ -12,3 +12,6 @@ RUN apk add --no-cache bash
 EXPOSE 8080
 CMD ["./wait-for-it.sh", "--timeout=10", "config-service:8888", "--", "java -jar", "@project.build.finalName@.jar"]
 
+
+# Comentário por Mateus Medeiros
+# SM01

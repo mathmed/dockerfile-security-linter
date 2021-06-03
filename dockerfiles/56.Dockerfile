@@ -48,3 +48,6 @@ COPY startup.sh ${ROCKETMQ_SCENARIO_HOME}
 #
 #
 CMD sh ${ROCKETMQ_SCENARIO_HOME}/startup.sh
+
+# Comentário por Mateus Medeiros
+# SM01

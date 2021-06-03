@@ -16,3 +16,6 @@ RUN yum install -y  http://www.rabbitmq.com/releases/rabbitmq-server/v3.5.6/rabb
 # Allow triggerable events on the first time running
 RUN touch /tmp/firsttimerunning
 
+
+# Comentário por Mateus Medeiros
+# SM01

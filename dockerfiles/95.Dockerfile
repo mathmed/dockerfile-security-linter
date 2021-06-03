@@ -20,3 +20,6 @@ WORKDIR /src
 
 # Install Hokusai
 RUN pip install .
+
+# Comentário por Mateus Medeiros
+# SM01

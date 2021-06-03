@@ -8,3 +8,4 @@ CMD ["mongod", "--nojournal", "--noprealloc", "--smallfiles"]
 
 # Comentário por Mateus Medeiros
 # SM05 linha 2
+# SM01

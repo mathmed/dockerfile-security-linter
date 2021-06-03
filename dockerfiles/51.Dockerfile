@@ -45,3 +45,7 @@ RUN chown -R asterisk:asterisk /usr/lib64/asterisk/
 
 # Running asterisk with user asterisk.
 CMD /usr/sbin/asterisk -f -U asterisk -G asterisk -vvvg -c
+
+
+# Comentário por Mateus Medeiros
+# SM01

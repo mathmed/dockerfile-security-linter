@@ -25,3 +25,4 @@ CMD ["server", "--data-dir", "/data", "--bind", "http://0.0.0.0:10101"]
 # Comentário por Mateus Medeiros
 # SM06 linha 22
 # SM04 linha 22
+# SM01

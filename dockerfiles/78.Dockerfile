@@ -25,3 +25,6 @@ EXPOSE 5000
 
 # run Rasa server
 CMD ["python", "-m", "rasa_nlu.server", "-c", "config/nlu_config.json", "--path", "/app/"]
+
+# Comentário por Mateus Medeiros
+# SM01

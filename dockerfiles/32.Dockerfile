@@ -19,3 +19,6 @@ CMD ["nginx"]
 
 EXPOSE 80
 EXPOSE 443
+
+# Comentário por Mateus Medeiros
+# SM01

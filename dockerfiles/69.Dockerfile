@@ -35,3 +35,7 @@ RUN set -ex \
     && chown root:root -R . \
     && chmod 0755 -R . \
     && chown www-data:www-data -R storage/app/ storage/framework/cache/ storage/framework/views/ storage/logs/ html/upload/
+
+
+# Comentário por Mateus Medeiros
+# SM01

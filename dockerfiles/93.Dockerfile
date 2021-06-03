@@ -30,3 +30,6 @@ RUN git clone -b r1.13.0 --depth 1 https://github.com/tensorflow/models.git /ten
 
 # Checkout tensorflow/tpu at the appropriate branch
 RUN git clone -b r1.13 --depth 1 https://github.com/tensorflow/tpu.git /tensorflow_tpu_models
+
+# Comentário por Mateus Medeiros
+# SM01

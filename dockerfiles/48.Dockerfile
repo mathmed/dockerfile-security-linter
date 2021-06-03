@@ -33,3 +33,4 @@ CMD ["echo","'No CMD command was set in Dockerfile! Details about CMD command co
 # Comentário por Mateus Medeiros
 # SM08 linha 28
 # SM09 linha 2
+# SM01

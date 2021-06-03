@@ -45,3 +45,6 @@ ENV ROOT_URL $S3_GIF_BUCKET
 EXPOSE 80
 
 CMD ["npm", "start"]
+
+# Comentário por Mateus Medeiros
+# SM01

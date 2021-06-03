@@ -8,3 +8,6 @@ VOLUME /app
 EXPOSE 3000
 
 WORKDIR /app
+
+# Comentário por Mateus Medeiros
+# SM01

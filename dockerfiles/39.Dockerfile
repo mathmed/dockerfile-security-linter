@@ -25,3 +25,4 @@ ONBUILD USER root
 # SM08 linha 1
 # SM02 linha 9
 # SM02 linha 11
+# SM01

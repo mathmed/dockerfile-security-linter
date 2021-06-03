@@ -9,3 +9,6 @@ RUN pip install couchdb
 ENTRYPOINT ["python"]  
 CMD ["main.py"]  
 
+
+# Comentário por Mateus Medeiros
+# SM01

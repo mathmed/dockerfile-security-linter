@@ -88,3 +88,4 @@ ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
 
 # Comentário por Mateus Medeiros
 # SM07 linha 75
+# SM01

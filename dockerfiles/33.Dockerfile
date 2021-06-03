@@ -15,3 +15,6 @@ WORKDIR /var/app
 
 # Run raffler
 CMD ["bash", "/var/app/run.sh"]
+
+# Comentário por Mateus Medeiros
+# SM01

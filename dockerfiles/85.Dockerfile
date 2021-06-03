@@ -38,3 +38,4 @@ EXPOSE 22 80
 # SM03 linha 5
 # SM03 linha 6
 # SM03 linha 7
+# SM01

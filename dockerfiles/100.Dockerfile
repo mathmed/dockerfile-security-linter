@@ -21,3 +21,4 @@ ENTRYPOINT [ "opam", "config", "exec", "--", "bash" ]
 # Comentário por Mateus Medeiros
 # SM09 linha 1
 # SM05 linha 14
+# SM01

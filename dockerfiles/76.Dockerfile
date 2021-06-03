@@ -20,3 +20,4 @@ COPY --from=composer /app/vendor ./vendor
 
 # Comentário por Mateus Medeiros
 # SM08 linha 18
+# SM01

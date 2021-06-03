@@ -29,3 +29,4 @@ ENTRYPOINT ["/bin/bash","--login","-c"]
 # Comentário por Mateus Medeiros
 # SM09 linha 1
 # SM04 linha 25
+# SM01

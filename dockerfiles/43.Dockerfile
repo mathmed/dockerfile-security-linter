@@ -8,3 +8,4 @@ COPY 2_data.sql /docker-entrypoint-initdb.d/
 
 # Comentário por Mateus Medeiros
 # SM03 linha 3
+# SM01

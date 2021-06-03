@@ -16,3 +16,4 @@ CMD ["/opt/kayenta/bin/kayenta"]
 
 # Comentário por Mateus Medeiros
 # SM03 linha 9
+# SM01

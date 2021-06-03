@@ -33,3 +33,4 @@ RUN set -x \
 # Comentário por Mateus Medeiros
 # SM08 linha 6
 # SM03 linha 8
+# SM01

@@ -6,3 +6,5 @@ RUN chmod +x /usr/local/bin/gcsfuse
 RUN apk update && apk upgrade && \  
 apk add \--no-cache fuse
 
+# Comentário por Mateus Medeiros
+# SM01

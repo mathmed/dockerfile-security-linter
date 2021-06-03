@@ -26,3 +26,4 @@ CMD gunicorn -b 0.0.0.0:5000 manage:app
 
 # Comentário por Mateus Medeiros
 # SM04 linha 24
+# SM01

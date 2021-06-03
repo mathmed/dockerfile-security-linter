@@ -18,3 +18,6 @@ ADD monitor.sh /xware
 RUN chmod u+x monitor.sh
 
 CMD ["./monitor.sh"]
+
+# Comentário por Mateus Medeiros
+# SM01

@@ -17,3 +17,4 @@ ENTRYPOINT ["supervisord", "--nodaemon", "--configuration", "/etc/supervisord.co
 # Comentário por Mateus Medeiros
 # SM09 linha 1
 # SM01 linha 3
+# SM01

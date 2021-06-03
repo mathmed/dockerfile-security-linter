@@ -29,3 +29,4 @@ ENTRYPOINT ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
 
 # Comentário por Mateus Medeiros
 # SM03 linha 7
+# SM01

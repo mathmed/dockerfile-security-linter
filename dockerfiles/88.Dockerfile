@@ -13,3 +13,4 @@ CMD ["jekyll", "serve", "--host=0.0.0.0", "--watch"]
 
 # Comentário por Mateus Medeiros
 # SM04 linha 12
+# SM01

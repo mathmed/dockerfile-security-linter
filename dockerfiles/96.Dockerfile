@@ -9,3 +9,4 @@ COPY logtrail.json /usr/share/kibana/plugins/logtrail/logtrail.json
 # Comentário por Mateus Medeiros
 # SM09 linha 1
 # SM06 linha 3
+# SM01

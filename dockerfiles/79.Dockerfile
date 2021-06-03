@@ -40,4 +40,5 @@ cx_Oracle \
 && apk del .build-deps  
 
 # Comentário por Mateus Medeiros
-# SM01 linha 5
+# SM01
+

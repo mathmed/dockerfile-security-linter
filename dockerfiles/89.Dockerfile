@@ -34,3 +34,6 @@ RUN chmod +x /usr/bin/docker-machine
 # Git configuration
 RUN git config --global user.email "jenkins@nemerosa.net" \
     && git config --global user.name "Jenkins"
+
+# Comentário por Mateus Medeiros
+# SM01

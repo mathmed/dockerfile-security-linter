@@ -38,3 +38,4 @@ COPY $SERVER_ARTIFACT $SERVER_ROOT/
 # SM06 linha 17
 # SM03 linha 24
 # SM05 linha 9
+# SM01

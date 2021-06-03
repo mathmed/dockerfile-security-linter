@@ -14,3 +14,4 @@ ENTRYPOINT ["dotnet", "Pitstop.VehicleManagement.dll"]
 # Comentário por Mateus Medeiros
 # SM06 linha 7
 # SM04 linha 7
+# SM01

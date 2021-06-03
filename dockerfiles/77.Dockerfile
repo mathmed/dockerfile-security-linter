@@ -11,3 +11,6 @@ EXPOSE 8000
 RUN pip install mkdocs==0.17.3 mkdocs-material==2.7.3 Pygments>=2.2 pymdown-extensions>=4.11 && \
     apk add --no-cache git-fast-import openssh-client
 ENTRYPOINT [ "/bin/ash", "-c" ]
+
+# Comentário por Mateus Medeiros
+# SM01

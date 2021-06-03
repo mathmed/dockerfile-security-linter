@@ -28,3 +28,4 @@ ENTRYPOINT php-fpm && nginx && cd html/ \
 # SM06 linha 7
 # SM03 linha 8
 # SM02 linha 9
+# SM01

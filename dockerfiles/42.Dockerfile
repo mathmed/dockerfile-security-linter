@@ -86,3 +86,6 @@ EXPOSE 4000
 EXPOSE 4010
 
 CMD trap exit INT; trap exit TERM; /opt/sites/rig/bin/rig foreground & wait
+
+# Comentário por Mateus Medeiros
+# SM01

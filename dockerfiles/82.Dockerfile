@@ -19,3 +19,6 @@ EXPOSE 9104
 EXPOSE 9105
 
 CMD /opt/rabbit/startrabbit.sh
+
+# Comentário por Mateus Medeiros
+# SM01

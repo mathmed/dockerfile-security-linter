@@ -102,3 +102,4 @@ LABEL org.hyperledger.fabric.version=${PROJECT_VERSION} \
 # SM05 linha 42
 # SM05 linha 89
 # SM05 linha 92
+# SM01

@@ -17,3 +17,6 @@ RUN apt-get -qq update && apt-get --no-install-recommends -y install \
 
 WORKDIR /build/
 CMD bash
+
+# Comentário por Mateus Medeiros
+# SM01

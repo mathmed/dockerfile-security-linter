@@ -12,3 +12,5 @@ CMD [ "/usr/local/bin/s3" ]
   
 ENTRYPOINT [ "/usr/local/bin/s3" ]  
 
+# Comentário por Mateus Medeiros
+# SM01

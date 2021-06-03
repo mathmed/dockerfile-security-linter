@@ -70,3 +70,4 @@ CMD ["redis-server"]
 
 # Comentário por Mateus Medeiros
 # SM06 linha 14
+# SM01

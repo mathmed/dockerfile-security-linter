@@ -29,3 +29,4 @@ ENTRYPOINT ["/bin/bash"]
 # Comentário por Mateus Medeiros
 # SM03 linha 19
 # SM03 linha 21
+# SM01

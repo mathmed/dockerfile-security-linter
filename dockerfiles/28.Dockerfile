@@ -78,3 +78,6 @@ RUN mkdir /var/local/jenkins
 
 # Define the default command.
 CMD ["bash"]
+
+# Comentário por Mateus Medeiros
+# SM01

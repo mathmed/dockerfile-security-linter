@@ -61,3 +61,4 @@ RUN chmod +x /etc/service/bitcoind/run
 
 # Comentário por Mateus Medeiros
 # SM09 linha 9
+# SM01

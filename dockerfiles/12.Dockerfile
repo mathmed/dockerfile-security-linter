@@ -42,3 +42,6 @@ ENV PATH /go/bin:$PATH
 ENV GO_CHECKOUT master
 ADD ./gobuild.sh /gobuild.sh
 ENTRYPOINT [ "/gobuild.sh" ]
+
+# Comentário por Mateus Medeiros
+# SM01

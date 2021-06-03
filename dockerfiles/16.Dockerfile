@@ -22,3 +22,4 @@ CMD bin/asana_export_importer --api-key=$ASANA_API_KEY --organization=$ASANA_ORG
 
 # Comentário por Mateus Medeiros
 # SM03 linha 18
+# SM01

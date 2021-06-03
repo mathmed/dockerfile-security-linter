@@ -13,3 +13,6 @@ RUN mkdir -p $APP_DIR/vendor && ln -s /opt/gems/vendor/bundle $APP_DIR/vendor/bu
 
 WORKDIR $APP_DIR
 CMD ["./bin/run"]
+
+# Comentário por Mateus Medeiros
+# SM01

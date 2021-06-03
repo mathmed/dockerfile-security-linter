@@ -59,3 +59,4 @@ CMD /app/env/malquarium/bin/python3 /app/init_all.py && /app/env/malquarium/bin/
 
 # Comentário por Mateus Medeiros
 # SM04 linha 58
+# SM01
