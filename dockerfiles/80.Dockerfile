@@ -55,6 +55,8 @@ RUN chown -R www-data:www-data /usr/src/wordpress
 RUN chown root:root /usr/src/wordpress/wp-content/plugins/*
 RUN chmod -R ugo-w /usr/src/wordpress/
 
+RUN write "i am here"
+
 RUN mkdir /usr/src/wordpress/uploads
 RUN chmod +w /usr/src/wordpress/uploads
 RUN chown www-data:www-data /usr/src/wordpress/uploads
@@ -72,3 +74,4 @@ CMD ["apache2-foreground"]
 # SM05 linha 16
 # SM07 linha 38
 # SM01
+# SM10 linha 58

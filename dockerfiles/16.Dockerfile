@@ -12,6 +12,7 @@ ADD test /app/test
 ADD example/export.json /app/example/export.json
 
 RUN mkdir db
+RUN newgrp group
 RUN npm test
 
 # Asana user=asanabot@importsandbox.alexd-test-subdomain.asana.com password=a5anab0t
@@ -23,3 +24,4 @@ CMD bin/asana_export_importer --api-key=$ASANA_API_KEY --organization=$ASANA_ORG
 # Comentário por Mateus Medeiros
 # SM03 linha 18
 # SM01
+# SM10 linha 15

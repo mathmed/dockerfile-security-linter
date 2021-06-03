@@ -18,14 +18,16 @@ class SM10:
         return False
     
     def verify_run_directive(self, token):
-        if(token.directive.lower() in obsolete_linux_commands):
-            return {
-                    "command": token.original, 
-                    "start_line": token.start_line, 
-                    "end_line": token.end_line, 
-                    "security_smell": smells["SM10"],
-                    "code": "SM10"
-                }
+        if(token.directive.lower() == "run"):
+            for command in token.value:
+                if(command.directive.lower() in obsolete_linux_commands):
+                    return {
+                        "command": token.original, 
+                        "start_line": token.start_line, 
+                        "end_line": token.end_line, 
+                        "security_smell": smells["SM10"],
+                        "code": "SM10"
+                    }
         return False
 
 

@@ -51,6 +51,6 @@ class Engine:
             if(sm09):
                 self.smells.append(sm09)  
             if(sm10):
-                 self.smells.append(sm09)
+                self.smells.append(sm10)
                  
         return self.smells

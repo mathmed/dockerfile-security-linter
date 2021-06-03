@@ -8,6 +8,8 @@ ENV REGISTRY_PORT "5000"
 
 RUN mkdir /app
 
+RUN unpack /app/a.zip
+
 COPY forward.py /app/
 
 EXPOSE 5000
@@ -19,3 +21,4 @@ CMD ["python", "/app/forward.py"]
 # SM05 linha 1
 # SM06 linha 6
 # SM01
+# SM10 11
