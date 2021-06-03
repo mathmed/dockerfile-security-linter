@@ -18,5 +18,12 @@ class TestShellLexicalAnalysis(unittest.TestCase):
         self.assertEqual(sut.get_tokens()[1].directive, "apt")
         self.assertEqual(sut.get_tokens()[1].value, ["install", "git"])
 
+    def test_parse_tokens_with_sudo_command(self):
+        sut = ShellLexicalAnalysis("sudo apt install git || apt install && apt update")
+        result = sut.parse()
+
+        self.assertEqual(sut.get_tokens()[0].directive, "apt")
+        self.assertEqual(sut.get_tokens()[0].value, ["install", "git"])
+
 if __name__ == '__main__':
     unittest.main()
