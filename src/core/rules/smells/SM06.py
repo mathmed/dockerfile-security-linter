@@ -28,7 +28,9 @@ class SM06:
         if(directive == "env" or directive == "arg"):
             for env in token.value:
                 key, value = env[0], env[1]
-                if(includes_host(key) and ("http://" in value or ("https://" not in value and "$" not in value and len(value.replace(" ", "").replace("\"", "")) > 0))):
+                if(includes_host(key)
+                    and ("http://" in value or 
+                    ("https://" not in value and "$" not in value and len(value.replace(" ", "").replace("\"", "").replace("'", "")) > 0))):
                     return {
                             "command": token.original, 
                             "start_line": token.start_line, 
