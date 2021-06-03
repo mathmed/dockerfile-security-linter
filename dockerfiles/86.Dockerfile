@@ -85,3 +85,6 @@ ENV PATH=$PATH:/usr/local/openresty/luajit/bin/:/usr/local/openresty/nginx/sbin/
 RUN ldconfig
 
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
+
+# Comentário por Mateus Medeiros
+# SM07 linha 75
