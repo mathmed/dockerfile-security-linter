@@ -24,22 +24,16 @@ class SM04:
     def verify_env_directive(self, token):
         directive = token.directive.lower()
         if(directive == "env" or directive == "arg"):
+            for env in token.value:
+                key, value = env[0], env[1]
+                if(includes_host(key) and includes_suspicious_ip(value)):
+                    return {
+                            "command": token.original, 
+                            "start_line": token.start_line, 
+                            "end_line": token.end_line, 
+                            "security_smell": smells["SM04"]
+                    }
 
-            if(directive == "arg"):
-                sentence = token.value[0].split("=")
-                key = sentence[0]
-                value = "" if len(sentence) == 1 else sentence[1] 
-            else:
-                key = token.value[0]
-                value = token.value[1]
-
-            if(includes_host(key) and includes_suspicious_ip(value)):
-                return {
-                        "command": token.original, 
-                        "start_line": token.start_line, 
-                        "end_line": token.end_line, 
-                        "security_smell": smells["SM04"]
-                }
         return False
     
     def verify_cmd_directive(self, token):

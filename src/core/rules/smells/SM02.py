@@ -24,23 +24,17 @@ class SM02:
     def verify_env_directive(self, token):
         directive = token.directive.lower()
         if(directive == "env" or directive == "arg"):
-            
-            if(directive == "arg"):
-                sentence = token.value[0].split("=")
-                key = sentence[0]
-                value = "" if len(sentence) == 1 else sentence[1] 
-            else:
-                key = token.value[0]
-                value = token.value[1]
+            for env in token.value:
+                key, value = env[0], env[1]
+                if(includes_pass(key)):
+                    if(len(value) >= 1 and value.replace(" ", "") == "''"):
+                        return {
+                            "command": token.original, 
+                            "start_line": token.start_line, 
+                            "end_line": token.end_line, 
+                            "security_smell": smells["SM02"]
+                        }
 
-            if(includes_pass(key)):
-                if(len(token.value) >= 1 and value.replace(" ", "") == "''"):
-                    return {
-                        "command": token.original, 
-                        "start_line": token.start_line, 
-                        "end_line": token.end_line, 
-                        "security_smell": smells["SM02"]
-                    }
         return False
         
 

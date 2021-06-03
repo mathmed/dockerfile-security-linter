@@ -21,29 +21,22 @@ class SM03:
     def verify_env_directive(self, token):
         directive = token.directive.lower()
         if(directive == "env" or directive == "arg"):
-
-            if(directive == "arg"):
-                sentence = token.value[0].split("=")
-                key = sentence[0]
-                value = "" if len(sentence) == 1 else sentence[1] 
-            else:
-                key = token.value[0]
-                value = token.value[1]
-
-            if(includes_pass(key) or includes_user(key) or includes_key(key)):
-                if(len(token.value) >= 1 and value.replace(" ", "") != "''"):
-                    return {
-                        "command": token.original, 
-                        "start_line": token.start_line, 
-                        "end_line": token.end_line, 
-                        "security_smell": smells["SM03"]
-                    }
+            for env in token.value:
+                key, value = env[0], env[1]
+                if(includes_pass(key) or includes_user(key) or includes_key(key)):
+                    if(len(value) >= 1 and value.replace(" ", "") != "''" and "$" not in value):
+                        return {
+                            "command": token.original, 
+                            "start_line": token.start_line, 
+                            "end_line": token.end_line, 
+                            "security_smell": smells["SM03"]
+                        }
         return False
 
     def verify_run_directive(self, token):
         if(token.directive.lower() == "run"):
             for command in token.value:
-                if(command.directive.lower() == "export"):
+                if(command.directive.lower() == "export" or command.directive.lower() == "echo"):
                     for op in command.value:
                         if(includes_pass(op) or includes_user(op) or includes_key(op)):
                             return {
