@@ -42,6 +42,10 @@ def includes_permission(string):
     words = ["777", "a+rwx"]
     return run_verification(words, string)
 
+def includes_weak_encryption(string):
+    words = ["md5", "md4", "sha1", "sha-1"]
+    return run_verification(words, string)
+
 def includes_suspicious_word(string):
     for word in suspicious_words:
         if(word in string.lower()):
