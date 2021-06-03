@@ -33,10 +33,9 @@ class LexicalAnalysis:
             if(token_obj.directive.lower() == "run"):
                 token_obj.set_value(self.run_shell_analysis(token_obj.value[0]))
 
-            if(token_obj.directive.lower() == "env"):
+            elif(token_obj.directive.lower() == "env"):
                 token_obj.set_value(self.convert_array_env_directive(token_obj.value))
-
-            if(token_obj.directive.lower() == "arg"):
+            elif(token_obj.directive.lower() == "arg"):
                 token_obj.set_value(self.convert_array_arg_directive(token_obj.value))
             
             converted_tokens.append(token_obj)
@@ -44,7 +43,7 @@ class LexicalAnalysis:
         natural_tokens = self.run_natural_analysis()
         for natural_token in natural_tokens:
             converted_tokens.append(natural_token)
-
+        
         self.tokens = converted_tokens
 
     def run_shell_analysis(self, command):
@@ -60,15 +59,16 @@ class LexicalAnalysis:
     def convert_array_env_directive(self, command):
         envs_array = []
         aux_array = []
-        
-        # Transforma o array resultante de envs em um array de arrays, no qual cada um representa um env
-        for i in range(len(command)):
-            if i % 2 == 0 and i != 0:
-                envs_array.append(aux_array)
-                aux_array = []
-            aux_array.append(command[i])
-        
-        return envs_array
+        if(len(command) > 2):
+            # Transforma o array resultante de envs em um array de arrays, no qual cada um representa um env
+            for i in range(len(command)):
+                if i % 2 == 0 and i != 0:
+                    envs_array.append(aux_array)
+                    aux_array = []
+                aux_array.append(command[i])
+            
+            return envs_array
+        return [command]
 
     def convert_array_arg_directive(self, command):
         arg_array = []
