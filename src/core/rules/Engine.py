@@ -18,9 +18,12 @@ class Engine:
 
     def run(self):
 
+        sm01 = SM01(self.tokens).validade()
+        if(sm01):
+            self.smells.append(sm01)
+
         for token in self.tokens:
 
-            sm01 = SM01(token).validade()
             sm02 = SM02(token).validade()
             sm03 = SM03(token).validade()
             sm04 = SM04(token).validade()
@@ -31,8 +34,6 @@ class Engine:
             sm09 = SM09(token).validade()
             sm10 = SM10(token).validade()
 
-            if(sm01):
-                self.smells.append(sm01)
             if(sm02):
                 self.smells.append(sm02)
             if(sm03):
