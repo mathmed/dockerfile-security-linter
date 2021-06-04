@@ -35,6 +35,7 @@ class LexicalAnalysis:
 
             elif(token_obj.directive.lower() == "env"):
                 token_obj.set_value(self.convert_array_env_directive(token_obj.value))
+
             elif(token_obj.directive.lower() == "arg"):
                 token_obj.set_value(self.convert_array_arg_directive(token_obj.value))
             
@@ -62,12 +63,13 @@ class LexicalAnalysis:
         if(len(command) > 2):
             # Transforma o array resultante de envs em um array de arrays, no qual cada um representa um env
             for i in range(len(command)):
-                if i % 2 == 0 and i != 0:
+                aux_array.append(command[i])
+                if i % 2 > 0 and i != 0:
                     envs_array.append(aux_array)
                     aux_array = []
-                aux_array.append(command[i])
-            
+
             return envs_array
+
         return [command]
 
     def convert_array_arg_directive(self, command):
