@@ -122,6 +122,17 @@ class TestEngine(unittest.TestCase):
                     "code": "SM10"
                 }
         self.assertEqual(sut.run(), [expected])
+
+    def test_engine_should_return_sm11_smell(self):
+        sut = Engine([Token("run", "any_original", "any_start", "any_end", [TokenShell("wget", ["-o", "exec.sh", "http://any.com/test.sh"]), TokenShell("./exec.sh", [])]), self.user_aux_token])
+        expected = {
+                    "command": "any_original", 
+                    "start_line": "any_start", 
+                    "end_line": "any_end", 
+                    "security_smell": smells["SM11"],
+                    "code": "SM11"
+                }
+        self.assertEqual(sut.run(), [expected])
         
 if __name__ == '__main__':
     unittest.main()
