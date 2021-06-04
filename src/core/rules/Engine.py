@@ -9,6 +9,7 @@ from .smells.SM07 import SM07
 from .smells.SM08 import SM08
 from .smells.SM09 import SM09
 from .smells.SM10 import SM10
+from .smells.SM11 import SM11
 
 class Engine:
 
@@ -21,6 +22,10 @@ class Engine:
         sm01 = SM01(self.tokens).validade()
         if(sm01):
             self.smells.append(sm01)
+
+        sm11 = SM11(self.tokens).validade()
+        if(sm11):
+            self.smells.append(sm11)
 
         for token in self.tokens:
 

@@ -50,6 +50,10 @@ def includes_service_start_command(string):
     words = ["npm", "yarn", "php"]
     return run_verification(words, string)
 
+def includes_file_execution(string, filename):
+    words = ["./" + filename + ".sh", "bash", "/bin/bash", "bin/bash", "sh"]
+    return run_verification(words, string)
+
 def includes_suspicious_word(string):
     for word in suspicious_words:
         if(word in string.lower()):

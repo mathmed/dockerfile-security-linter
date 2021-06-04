@@ -46,7 +46,12 @@ smells = {
   },
     "SM10": {
     "smell": "Uso de funções ou comandos obsoletos",
-    "description": "O código usa funções descontinuadas ou obsoletas, o que sugere que o código não foi revisado ou mantido ativamente.",
+    "description": "O código usa funções descontinuadas ou obsoletas, o que sugere que o código não foi revisado ou mantido ativamente",
     "cwe": 477
+  },
+    "SM11": {
+    "smell": "Download e execução de código sem verificação de integridade",
+    "description": "Baixa o código-fonte ou um executável de um local remoto e executa o código sem verificar suficientemente a origem e integridade do código",
+    "cwe": 494
   }
 }
