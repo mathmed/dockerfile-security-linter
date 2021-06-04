@@ -63,6 +63,5 @@ EXPOSE 8080
 
 # Comentário por Mateus Medeiros
 # SM06 linha 52
-# SM02 linha 55
 # SM06 linha 54
 # SM01
