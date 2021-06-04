@@ -130,3 +130,4 @@ CMD ["/usr/sbin/sshd","-eD", "-f", "/.sshd/user_keys/root/sshd_config"]
 # SM03 linha 20
 # SM05 linha 43
 # SM01
+# SM11 39
