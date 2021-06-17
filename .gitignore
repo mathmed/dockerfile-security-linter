@@ -1,5 +1,4 @@
 __pycache__
 htmlcov
 .coverage
-dockerfiles
 .env
