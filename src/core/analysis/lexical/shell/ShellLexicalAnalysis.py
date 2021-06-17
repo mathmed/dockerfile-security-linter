@@ -18,18 +18,19 @@ class ShellLexicalAnalysis:
 
     def process_tokens(self, tokens):
         for sentence in tokens:
-            token = Token()
-            if(sentence[0].lower() == "sudo"):
-                token.set_directive(sentence[1])
-                start_in = 2
-            else:
-                token.set_directive(sentence[0])
-                start_in = 1
-            words_arr = []
-            for operate in sentence[start_in:]:
-                words_arr.append(operate)
-            token.set_value(words_arr)
-            self.tokens.append(token)
+            if(len(sentence) > 0):
+                token = Token()
+                if(sentence[0].lower() == "sudo"):
+                    token.set_directive(sentence[1])
+                    start_in = 2
+                else:
+                    token.set_directive(sentence[0])
+                    start_in = 1
+                words_arr = []
+                for operate in sentence[start_in:]:
+                    words_arr.append(operate)
+                token.set_value(words_arr)
+                self.tokens.append(token)
 
     def process_operators(self, command):
         array = []
