@@ -11,14 +11,17 @@ from .smells.SM09 import SM09
 from .smells.SM10 import SM10
 from .smells.SM11 import SM11
 
+# Motor de regras
 class Engine:
 
     def __init__(self, tokens):
+        
         self.tokens = tokens
         self.smells = []
 
     def run(self):
 
+        # SM01 e SM11 precisam de todos os tokens do Dockerfile para realizarem a verificação
         sm01 = SM01(self.tokens).validade()
         if(sm01):
             self.smells.append(sm01)
@@ -27,6 +30,7 @@ class Engine:
         if(sm11):
             self.smells.append(sm11)
 
+        # Percorrendo cada token e enviado para todas as regras        
         for token in self.tokens:
 
             sm02 = SM02(token).validade()

@@ -1,3 +1,4 @@
+# Descrição dos security smells analisados
 smells = {
   "SM01": {
     "smell": "Admin por padrão",

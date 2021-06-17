@@ -4,8 +4,10 @@ from .lists.smells import *
 from .helpers.verifications import *
 
 class SM07:
+
     def __init__(self, token):
         self.token = token
+        
     def validade(self):
         token = self.token
 
@@ -15,12 +17,15 @@ class SM07:
             return run_directive
 
         return False
-    
 
     def verify_run_directive(self, token):
+
+        # Verifica se a diretiva é run
         if(token.directive.lower() == "run"):
             for command in token.value:
                 for op in command.value:
+
+                    # Verifica se o commando possui algum parâmetro com algoritmo fraco (eg: md5, sha1)
                     if(includes_weak_encryption(op)):
                         return {
                             "command": token.original, 

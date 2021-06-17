@@ -1,3 +1,5 @@
+
+# Sentenças suspeitas que podem aparecer em comentários
 suspicious_words = [
     "to do",
     "todo",

@@ -17,8 +17,11 @@ class SM01:
 
         return False
 
+    # Recebe como parâmetro todos tokens do Dockerfile
     def verify_user_directive(self, tokens):
         for token in tokens:
+
+            # Verifica se a diretiva em questão é user e o o usuário setado é root
             if(token.directive.lower() == "user"):
                 if(token.value[0].lower() == "root"):
                     return {
@@ -30,7 +33,8 @@ class SM01:
                     }
                 else:
                     return False
-                
+
+        # Caso não encontrado a diretiva user, returna o smell pois o usuário padrão é o root
         return {
                 "command": "Não utilização da diretiva USER", 
                 "start_line": "", 

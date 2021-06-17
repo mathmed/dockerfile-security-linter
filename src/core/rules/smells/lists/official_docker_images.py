@@ -1,3 +1,6 @@
+
+# Lista de imagens Docker oficiais
+# Fonte: https://docs.docker.com/docker-hub/official_images/
 official_docker_images = [
     "debian",
     "microsoft",

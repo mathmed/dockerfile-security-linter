@@ -1,3 +1,6 @@
+# Lista de comandos Linux obsoletos
+# Fonte: https://docstore.mik.ua/orelly/unix3/unixnut/appb_01.htm
+
 obsolete_linux_commands = [
     "bfs",
     "cof2elf",

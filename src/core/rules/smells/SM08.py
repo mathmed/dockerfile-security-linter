@@ -4,8 +4,10 @@ from .lists.smells import *
 from .helpers.verifications import *
 
 class SM08:
+
     def __init__(self, token):
         self.token = token
+
     def validade(self):
         token = self.token
 
@@ -18,10 +20,16 @@ class SM08:
     
 
     def verify_run_directive(self, token):
+
+        # Verifica se a diretiva é run
         if(token.directive.lower() == "run"):
             for command in token.value:
+
+                # Verifica se o comando shell é chmod ou chown
                 if(command.directive.lower() == "chmod" or command.directive.lower() == "mkdir"):
                     for op in command.value:
+
+                        # Verifica se algum parâmetro indica permissão total (eg: 777)
                         if(includes_permission(op)):
                             return {
                                 "command": token.original, 

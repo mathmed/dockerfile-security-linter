@@ -4,6 +4,8 @@ from api.web import main as WEB
 
 def main():
 
+    # Recebendo parâmetros
+
     parser = ArgumentParser()
 
     parser.add_argument("-f", "--file", dest="filename",
@@ -15,6 +17,7 @@ def main():
 
     args = parser.parse_args()
 
+    # Iniciando em modo CLI ou WEB
     if(args.mode == "cli"):
         if(args.filename):
             CLI.main(args.filename)

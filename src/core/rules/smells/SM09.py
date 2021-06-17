@@ -3,8 +3,10 @@ from .lists.smells import *
 from .lists.official_docker_images import *
 
 class SM09:
+
     def __init__(self, token):
         self.token = token
+
     def validade(self):
         token = self.token
 
@@ -16,8 +18,14 @@ class SM09:
         return False
     
     def verify_from_directive(self, token):
+
+        # Verifica se a diretiva é from
         if(token.directive.lower() == "from"):
+            
+            # Recupera os valores da imagem
             image = token.value[0].split(":")[0]
+
+            # Verifica se a imagem está presente na lista de imagens oficiais
             if(image not in official_docker_images):
                 return {
                         "command": token.original, 

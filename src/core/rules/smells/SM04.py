@@ -3,8 +3,10 @@
 from .lists.smells import *
 from .helpers.verifications import *
 class SM04:
+
     def __init__(self, token):
         self.token = token
+        
     def validade(self):
         token = self.token
 
@@ -23,9 +25,15 @@ class SM04:
 
     def verify_env_directive(self, token):
         directive = token.directive.lower()
+
+        # Verifica se a diretiva do Docker é arg ou env, as possíveis para se atribuir uma variável
         if(directive == "env" or directive == "arg"):
+
+            # Recupera cada valor de env, chave e valor
             for env in token.value:
                 key, value = env[0], env[1]
+
+                # Verifica se a chave do env inclui atribuição de url e o valor é um IP inseguro
                 if(includes_host(key) and includes_suspicious_ip(value)):
                     return {
                             "command": token.original, 
@@ -39,8 +47,14 @@ class SM04:
     
     def verify_cmd_directive(self, token):
         directive = token.directive.lower()
+
+        # Verifica se a diretiva do Docker é cmd ou entrypoint
         if(directive == "cmd" or directive == "entrypoint"):
+
+            # Percorre todos os itens do comando
             for item in token.value:
+
+                # Verifica se o item é um IP suspeito
                 if(includes_suspicious_ip(item)):
                     return {
                             "command": token.original, 
@@ -52,9 +66,14 @@ class SM04:
         return False
 
     def verify_run_directive(self, token):
+        # Verifica se a diretiva do Docker é run
         if(token.directive.lower() == "run"):
+
+            # Percorre os parâmetros do comando
             for command in token.value:
                 for op in command.value:
+
+                    # Verifica se o parâmetro do comando inclui um IP suspeito
                     if(includes_suspicious_ip(op)):
                         return {
                             "command": token.original, 
