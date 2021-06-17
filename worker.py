@@ -31,6 +31,7 @@ def run(path):
     r = requests.post(url = url_api, json = params)
     
     try:
+        print("Verificando...")
         smells[position(json.loads(r.text)["result"][0]["code"])] += 1
     except:
         smells[11] += 1
